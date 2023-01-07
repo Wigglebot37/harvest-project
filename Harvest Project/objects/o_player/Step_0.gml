@@ -11,13 +11,15 @@ if(speed==0) {
 	else if(direction==LEFT || direction==RIGHT) y=round(y);
 }
 switch(direction) {
-	case UP: image_index=4; break;
-	case UP_RIGHT: image_index=5; break;
-	case RIGHT: image_index=6; break;
-	case DOWN_RIGHT: image_index=7; break;
-	case DOWN: image_index=0; break;
-	case DOWN_LEFT: image_index=1; break;
-	case LEFT: image_index=2; break;
-	case UP_LEFT: image_index=3;
+	case UP: sprite_index=sp_up; break;
+	case RIGHT: sprite_index=sp_right; break;
+	case DOWN: sprite_index=sp_down; break;
+	case LEFT: sprite_index=sp_left; break;
 }
-if(_dir!=-1) log(direction);
+//if(_dir!=-1) log(direction);
+if(sprite_index=sp_up) up=true;
+else up=false;
+if(mouse_check_button(mb_left)) suck=true;
+else suck=false;
+if(sub<3.9) sub+=0.1;
+else sub=0;

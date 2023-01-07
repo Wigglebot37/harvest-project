@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "o_player",
   "spriteId": {
-    "name": "sp_testdummy",
-    "path": "sprites/sp_testdummy/sp_testdummy.yy",
+    "name": "sp_down",
+    "path": "sprites/sp_down/sp_down.yy",
   },
   "solid": false,
   "visible": true,
@@ -15,8 +15,8 @@
   },
   "persistent": false,
   "parentObjectId": {
-    "name": "o_wall_1",
-    "path": "objects/o_wall_1/o_wall_1.yy",
+    "name": "o_wall",
+    "path": "objects/o_wall/o_wall.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
