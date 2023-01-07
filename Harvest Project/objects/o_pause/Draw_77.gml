@@ -24,12 +24,17 @@ if(paused) {
 }
 
 // Toggles Pause
-if(keyboard_check_pressed(vk_escape)) {
+if(keyboard_check_pressed(vk_escape) && !gameOver) {
 	if(!paused) {
 		paused=true;
 		// Deactivate all instances to be paused
 		// Using instance_deactivate_all(true); causes weird flicker glitch with draw gui
-		instance_deactivate_layer("Instances");
+		//instance_deactivate_layer("Instances");
+		instance_deactivate_object(o_player);
+		instance_deactivate_object(o_gun);
+		instance_deactivate_object(o_veggie);
+		instance_deactivate_object(o_suck);
+		instance_deactivate_object(o_enemy);
 		// Creates a new surface out of current screen size
 		pause_surf=surface_create(res_w,res_h);
 		// Copies from application surface
@@ -51,6 +56,28 @@ if(keyboard_check_pressed(vk_escape)) {
 		if(surface_exists(pause_surf)) surface_free(pause_surf);
 		if(buffer_exists(pause_surf_buffer)) buffer_delete(pause_surf_buffer);
 	}
+}
+
+if(gameOver && !paused) {
+	paused=true;
+	// Deactivate all instances to be paused
+	// Using instance_deactivate_all(true); causes weird flicker glitch with draw gui
+	//instance_deactivate_layer("Instances");
+	instance_deactivate_object(o_player);
+	instance_deactivate_object(o_gun);
+	instance_deactivate_object(o_veggie);
+	instance_deactivate_object(o_suck);
+	instance_deactivate_object(o_enemy);
+	// Creates a new surface out of current screen size
+	pause_surf=surface_create(res_w,res_h);
+	// Copies from application surface
+	surface_set_target(pause_surf);
+	draw_surface(application_surface,0,0);
+	surface_reset_target();
+	// Deletes buffer and creates a new one
+	if(buffer_exists(pause_surf_buffer)) buffer_delete(pause_surf_buffer);
+	pause_surf_buffer=buffer_create(res_w*res_h*4,buffer_fixed,1);
+	buffer_get_surface(pause_surf_buffer,pause_surf,0);
 }
 // Renables alpha blending
 gpu_set_blendenable(true);

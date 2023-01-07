@@ -11,8 +11,8 @@ if(inst!=noone && visible) {
 		else if(!inst.caught) {
 			with(inst) move_towards_point(o_gun.x,o_gun.y,1);
 		}
-	} else if(o_player.blow) {
-		inst.image_angle=image_angle;
+	} else if(o_player.blow && inst.lifetime==0) {
+		inst.image_angle=image_angle-180;
 		inst.direction=image_angle+90;
 		inst.speed=3;
 	}

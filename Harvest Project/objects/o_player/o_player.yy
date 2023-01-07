@@ -14,10 +14,7 @@
     "path": "sprites/sp_shadow/sp_shadow.yy",
   },
   "persistent": false,
-  "parentObjectId": {
-    "name": "o_wall",
-    "path": "objects/o_wall/o_wall.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,

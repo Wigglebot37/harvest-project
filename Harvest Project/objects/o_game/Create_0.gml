@@ -7,8 +7,8 @@
 #macro DOWN 270
 #macro DOWN_LEFT 225
 #macro LEFT 180
-globalvar paused;
-paused=false;
+globalvar paused,gameOver;
+paused=false; gameOver=false;
 
 mapstring=" 0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz.!?,'()&:;/%#\"$*+-=<>[]^_{}|\\~";
 globalvar fnt_pixel,fnt_tiny;

@@ -14,12 +14,9 @@ if(speed==0) {
 o_gun.depth=-y-10;
 var _dir=point_direction(x,y-9,mouse_x,mouse_y);
 if(_dir<45 || _dir>315) sprite_index=sp_right;
-else if(_dir>=45 && _dir<135) { sprite_index=sp_up; o_gun.depth=-o_gun.y; }
+else if(_dir>=45 && _dir<135) { sprite_index=sp_up; o_gun.depth=-y+10; }
 else if(_dir>=135 && _dir<225) sprite_index=sp_left;
 else if(_dir>=225 && _dir<=315) sprite_index=sp_down;
-
-if(sprite_index=sp_up) up=true;
-else up=false;
 
 var blowcheck=mouse_check_button(mb_right), suckcheck=mouse_check_button(mb_left);
 if(suckcheck && !blowcheck && o_gun.item==noone) suck=true;
@@ -31,5 +28,11 @@ else if(blow) sub-=0.1;
 else sub=0;
 if(sub>=4 && suck) sub=0;
 else if(sub<=0 && blow) sub=4;
+
+var inst=instance_place(x,y,o_enemy);
+if(inst!=noone && !gameOver) {
+	var col=rectangle_in_rectangle(x-7,y-3,x+7,y+2,inst.x-7,inst.y-3,inst.x+7,inst.y+2);
+	if(!inst.dead && col) gameOver=true;
+}
 
 depth=-y;

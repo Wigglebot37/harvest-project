@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "makeGun",
+  "name": "dissolve_shader",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
