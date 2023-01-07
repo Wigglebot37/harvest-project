@@ -7,11 +7,14 @@
 #macro DOWN 270
 #macro DOWN_LEFT 225
 #macro LEFT 180
-globalvar paused,gameOver;
-paused=false; gameOver=false;
+globalvar paused,gameOver,gameWon;
+paused=false; gameOver=false; gameWon=false;
 
 mapstring=" 0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz.!?,'()&:;/%#\"$*+-=<>[]^_{}|\\~";
 globalvar fnt_pixel,fnt_tiny;
 fnt_pixel=font_add_sprite_ext(sp_fontbig,mapstring,true,3);
 fnt_tiny=font_add_sprite_ext(sp_tinyfontbig,mapstring,true,3);
 draw_set_font(fnt_pixel);
+
+angle=0;
+angleswitch=false;

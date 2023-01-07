@@ -24,7 +24,7 @@ if(paused) {
 }
 
 // Toggles Pause
-if(keyboard_check_pressed(vk_escape) && !gameOver) {
+if(keyboard_check_pressed(vk_escape) && !gameOver && !gameWon) {
 	if(!paused) {
 		paused=true;
 		// Deactivate all instances to be paused
@@ -58,7 +58,7 @@ if(keyboard_check_pressed(vk_escape) && !gameOver) {
 	}
 }
 
-if(gameOver && !paused) {
+if((gameOver || gameWon) && !paused) {
 	paused=true;
 	// Deactivate all instances to be paused
 	// Using instance_deactivate_all(true); causes weird flicker glitch with draw gui
