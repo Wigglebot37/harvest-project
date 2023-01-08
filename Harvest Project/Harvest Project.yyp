@@ -49,6 +49,7 @@
     {"id":{"name":"sHut","path":"sprites/sHut/sHut.yy",},"order":0,},
     {"id":{"name":"sp_dissolve2","path":"sprites/sp_dissolve2/sp_dissolve2.yy",},"order":2,},
     {"id":{"name":"sp_wallDR","path":"sprites/sp_wallDR/sp_wallDR.yy",},"order":1,},
+    {"id":{"name":"snd_footstep","path":"sounds/snd_footstep/snd_footstep.yy",},"order":0,},
     {"id":{"name":"sp_carrot","path":"sprites/sp_carrot/sp_carrot.yy",},"order":8,},
     {"id":{"name":"o_game","path":"objects/o_game/o_game.yy",},"order":1,},
     {"id":{"name":"sp_fontbig","path":"sprites/sp_fontbig/sp_fontbig.yy",},"order":0,},

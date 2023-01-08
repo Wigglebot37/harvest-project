@@ -6,7 +6,7 @@ else if(angle<=-10) angleswitch=true;
 
 if(room==rm_menu && keyboard_check_pressed(vk_space)) room_goto(rm_start);
 
-if(!gameWon && !instance_exists(o_enemy) && !gameOver && room==rm_start) gameWon=true;
+if(!instance_exists(o_enemy) && !gameOver && room==rm_start && !paused) gameWon=true;
 
 if(!gameOver && !gameWon) exit;
 if(keyboard_check_pressed(ord("R"))) game_restart();

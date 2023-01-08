@@ -45,6 +45,7 @@ if(keyboard_check_pressed(vk_escape) && !gameOver && !gameWon) {
 		if(buffer_exists(pause_surf_buffer)) buffer_delete(pause_surf_buffer);
 		pause_surf_buffer=buffer_create(res_w*res_h*4,buffer_fixed,1);
 		buffer_get_surface(pause_surf_buffer,pause_surf,0);
+		audio_stop_all();
 	} else {
 		paused=false;
 		mono=1;
@@ -78,6 +79,7 @@ if((gameOver || gameWon) && !paused) {
 	if(buffer_exists(pause_surf_buffer)) buffer_delete(pause_surf_buffer);
 	pause_surf_buffer=buffer_create(res_w*res_h*4,buffer_fixed,1);
 	buffer_get_surface(pause_surf_buffer,pause_surf,0);
+	audio_stop_all();
 }
 // Renables alpha blending
 gpu_set_blendenable(true);
