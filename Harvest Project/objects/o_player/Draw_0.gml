@@ -1,6 +1,14 @@
 /// @description Insert description here
 draw_sprite(sp_shadow,0,x,y);
+
+if(invincibility>0) {
+	inv_factor=shader_get_uniform(shd_invert,"factor")
+	shader_set(shd_invert);
+	shader_set_uniform_f(inv_factor,1);
+}
 draw_self();
+shader_reset();
+
 var _ysc=1, off=9;
 var _dir=point_direction(x,y-off,mouse_x,mouse_y);
 if(_dir>90 && _dir<270) _ysc=-1;

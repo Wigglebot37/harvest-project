@@ -1,4 +1,7 @@
 dead=false;
+trigger=false;
+armored=false;
+image_speed=0;
 
 dissolveAmount = 1;
 col1 = make_color_rgb(0.8*255,0,0);

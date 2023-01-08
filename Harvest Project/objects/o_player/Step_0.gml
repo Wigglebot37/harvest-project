@@ -25,16 +25,29 @@ if(suckcheck && !blowcheck && o_gun.item==noone) suck=true;
 else if(blowcheck && !suckcheck) blow=true;
 else { suck=false; blow=false; }
 
+if(!instance_exists(o_veggie) && !paused && !instance_exists(o_evilEnemy)) {
+	instance_create_layer(0,0,"Instances",o_evilEnemy);
+}
+
 if(suck) sub+=0.1;
 else if(blow) sub-=0.1;
 else sub=0;
 if(sub>=4 && suck) sub=0;
 else if(sub<=0 && blow) sub=4;
 
+if(invincibility>0) invincibility-=0.02;
+
 var inst=instance_place(x,y,o_enemy);
-if(inst!=noone && !gameOver) {
+if(inst!=noone && !gameOver && !hit && invincibility==0) {
 	var col=rectangle_in_rectangle(x-7,y-3,x+7,y+2,inst.x-7,inst.y-3,inst.x+7,inst.y+2);
-	if(!inst.dead && col) gameOver=true;
+	if(!inst.dead && col) hit=true;
+}
+
+if(hit) {
+	hitpoints--;
+	if(hitpoints<=0) gameOver=true;
+	invincibility=1;
+	hit=false;
 }
 
 depth=-y;

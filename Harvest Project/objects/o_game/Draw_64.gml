@@ -1,3 +1,4 @@
+if(room==rm_start && instance_exists(o_player)) draw_text(20,20,o_player.hitpoints);
 if(room!=rm_menu) exit;
 
 draw_set_halign(fa_center);

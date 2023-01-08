@@ -35,6 +35,7 @@ if(keyboard_check_pressed(vk_escape) && !gameOver && !gameWon) {
 		instance_deactivate_object(o_veggie);
 		instance_deactivate_object(o_suck);
 		instance_deactivate_object(o_enemy);
+		instance_deactivate_object(o_evilEnemy);
 		// Creates a new surface out of current screen size
 		pause_surf=surface_create(res_w,res_h);
 		// Copies from application surface
@@ -69,6 +70,7 @@ if((gameOver || gameWon) && !paused) {
 	instance_deactivate_object(o_veggie);
 	instance_deactivate_object(o_suck);
 	instance_deactivate_object(o_enemy);
+	instance_deactivate_object(o_evilEnemy);
 	// Creates a new surface out of current screen size
 	pause_surf=surface_create(res_w,res_h);
 	// Copies from application surface

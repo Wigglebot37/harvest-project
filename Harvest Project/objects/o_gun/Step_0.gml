@@ -1,9 +1,15 @@
 var inst=instance_place(x,y,o_veggie);
 
 if(inst!=noone && !o_player.blow && item==noone) {
-	if(inst.lifetime==0) {
-		inst.caught=true;
-		item=inst;
+	if(inst.lifetime==0 && !inst.dead) {
+		if(inst.sprite_index==sp_carrot) {
+			inst.caught=true;
+			item=inst;
+		} else if(inst.sprite_index==sp_potato) {
+			inst.dead=true;
+			inst.image_index=2;
+			o_player.hit=true;
+		}
 	}
 }
 
