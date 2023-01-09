@@ -35,6 +35,8 @@ if(keyboard_check_pressed(vk_escape) && !gameOver && !gameWon) {
 		instance_deactivate_object(o_veggie);
 		instance_deactivate_object(o_suck);
 		instance_deactivate_object(o_enemy);
+		instance_deactivate_object(o_veggieMaker);
+		instance_deactivate_object(o_enemyMaker);
 		// Creates a new surface out of current screen size
 		pause_surf=surface_create(res_w,res_h);
 		// Copies from application surface
@@ -45,8 +47,9 @@ if(keyboard_check_pressed(vk_escape) && !gameOver && !gameWon) {
 		if(buffer_exists(pause_surf_buffer)) buffer_delete(pause_surf_buffer);
 		pause_surf_buffer=buffer_create(res_w*res_h*4,buffer_fixed,1);
 		buffer_get_surface(pause_surf_buffer,pause_surf,0);
-		audio_stop_all();
+		audio_pause_all();
 	} else {
+		audio_resume_all();
 		paused=false;
 		mono=1;
 		blur=0;
@@ -69,6 +72,8 @@ if((gameOver || gameWon) && !paused) {
 	instance_deactivate_object(o_veggie);
 	instance_deactivate_object(o_suck);
 	instance_deactivate_object(o_enemy);
+	instance_deactivate_object(o_veggieMaker);
+	instance_deactivate_object(o_enemyMaker);
 	// Creates a new surface out of current screen size
 	pause_surf=surface_create(res_w,res_h);
 	// Copies from application surface
@@ -79,7 +84,7 @@ if((gameOver || gameWon) && !paused) {
 	if(buffer_exists(pause_surf_buffer)) buffer_delete(pause_surf_buffer);
 	pause_surf_buffer=buffer_create(res_w*res_h*4,buffer_fixed,1);
 	buffer_get_surface(pause_surf_buffer,pause_surf,0);
-	audio_stop_all();
+	audio_pause_all();
 }
 // Renables alpha blending
 gpu_set_blendenable(true);

@@ -9,5 +9,4 @@ if(instance==noone && timer==0) {
 	instance=instance_create_layer(x,y,"Instances",o_veggie);
 	instance.hitpoints=hitpoints;
 	instance.sprite_index=sprite;
-	
 }

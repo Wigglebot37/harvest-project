@@ -1,2 +1,2 @@
 armored=true;
-image_index=1;
+index=1;

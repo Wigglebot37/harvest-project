@@ -51,6 +51,7 @@ if(hit) {
 	hitpoints--;
 	if(hitpoints<=0) gameOver=true;
 	invincibility=1;
+	audio_play_sound(snd_oof,100,false);
 	hit=false;
 }
 
