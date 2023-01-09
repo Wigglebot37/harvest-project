@@ -1,10 +1,9 @@
 /// @description Insert description here
-sprite_index=sp_carrot;
 image_speed=0;
 lifetime=80;
 caught=false;
 
-hitpoints=3;
+hitpoints=2;
 dead=false;
 
 dissolveAmount = 1;

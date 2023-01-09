@@ -25,13 +25,17 @@ if(suckcheck && !blowcheck && o_gun.item==noone) suck=true;
 else if(blowcheck && !suckcheck) blow=true;
 else { suck=false; blow=false; }
 
-if(!instance_exists(o_veggie) && !paused && !instance_exists(o_evilEnemy)) {
-	instance_create_layer(0,0,"Instances",o_evilEnemy);
+var aud=audio_is_playing(snd_sucking);
+if(suck) {
+	if(!aud) audio_play_sound(snd_sucking,100,true);
+	sub+=0.1;
+} else if(blow) {
+	if(!aud) audio_play_sound(snd_sucking,100,true);
+	sub-=0.1;
+} else {
+	if(aud) audio_stop_sound(snd_sucking);
+	sub=0;
 }
-
-if(suck) sub+=0.1;
-else if(blow) sub-=0.1;
-else sub=0;
 if(sub>=4 && suck) sub=0;
 else if(sub<=0 && blow) sub=4;
 

@@ -18,3 +18,4 @@ draw_set_font(fnt_pixel);
 
 angle=0;
 angleswitch=false;
+draw_set_color(c_black);
